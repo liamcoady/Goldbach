@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+import numpy as np
+
+def SoE(val):
+  max = val+1
+  lst = [True] * max
+  for i in range(2, int(val**0.5 + 1)):
+    if lst[i]:
+      for j in range(i*i, max, i):
+        lst[j] = False
+  final = []
+  for i in range(2, max):
+    if lst[i]:
+      final.append(i)
+  return final
+
+
+
+for x in range(4,102,2):
+	y = SoE(x)
+	new_primes = []
+	chi_set =[]
+	for t in y:
+		if (t >= x/2 and t< x-1):
+			new_primes.append(t)
+		
+	for p in new_primes:
+		chi_set.append(x-p)
+	print(x, ":", chi_set, )
+	len_prime = len(chi_set)
+	len_comp = ((x/2)-1)
+	r_comp = (len_comp - len_prime)/len_comp
+
+  
+print(x, ":", chi_set)

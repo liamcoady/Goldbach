@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import numpy as np
 
-def SoE(val):
+def sieve_of_eratosthenes(val):
   max = val+1
   lst = [True] * max
   for i in range(2, int(val**0.5 + 1)):
@@ -16,8 +16,8 @@ def SoE(val):
 
 
 
-for x in range(4,102,2):
-	y = SoE(x)
+for x in range(4,202,2):
+	y = sieve_of_eratosthenes(x)
 	new_primes = []
 	chi_set =[]
 	for t in y:
@@ -27,9 +27,3 @@ for x in range(4,102,2):
 	for p in new_primes:
 		chi_set.append(x-p)
 	print(x, ":", chi_set, )
-	len_prime = len(chi_set)
-	len_comp = ((x/2)-1)
-	r_comp = (len_comp - len_prime)/len_comp
-
-  
-print(x, ":", chi_set)
